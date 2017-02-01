@@ -4,9 +4,7 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	var numberOfGuests = 1;
-	var starterChoise = 1;
-	var mainChoise = 100;
-	var dessertChoise = 200;
+	var menuDishes = [1,100,200];
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
@@ -22,23 +20,22 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2
-		if (type=='starter') return getDish(starterChoise);
-		else if (type=='main dish') return getDish(mainChoise);
-		else if (type=='dessert') return getDish(dessertChoise);
-		else return false;
-
-
-
+		for (i in menuDishes){
+			if (type == getDish(menuDishes[i]).type) return menuDishes[i];
+		}
+		return false;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 2
-		return [
-				getDish(starterChoise), 
-				getDish(mainChoise), 
-				getDish(dessertChoise)
-		];
+
+		var allDishes = [];
+		for (i in menuDishes){
+			allDishes = allDishes.concat(getDish(menuDishes[i]));
+		}
+
+		return allDishes;
 
 	}
 
@@ -46,9 +43,10 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		//TODO Lab 2
 
-		var starterIngredients = getDish(starterChoise).ingredients;
-		var allIngredients = starterIngredients.concat(getDish(mainChoise).ingredients, getDish(dessertChoise).ingredients);
-
+		var allIngredients = [];
+		for (i in menuDishes){
+			allIngredients = allIngredients.concat(getDish(menuDishes[i]).ingredients);
+		}
 		return  allIngredients;
 
 	}
@@ -79,6 +77,10 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
+		if (getDish(id).type == 'starter') starterChoise = 0;
+		else if (getDish(id).type == 'main dish') mainChoise = 0;
+		else if (getDish(id).type == 'dessert') dessertChoise = 0;
+		else return false;
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

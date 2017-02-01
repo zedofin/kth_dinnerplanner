@@ -8,6 +8,6 @@ var ExampleView = function (container) {
 	this.minusButton = container.find("#minusGuest");
 	
 	//this.numberOfGuests.html("Hello World!");
-	this.numberOfGuests.html("#numberOfGuests");
+	this.numberOfGuests.html("0");
 }
  

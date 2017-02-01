@@ -3,10 +3,10 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	var numberOfGuests = 0;
-	var starterChoise;
-	var mainChoise;
-	var dessertChoise;
+	var numberOfGuests = 1;
+	var starterChoise = 1;
+	var mainChoise = 100;
+	var dessertChoise = 200;
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
@@ -70,6 +70,10 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
+		if (getDish(id).type == 'starter') starterChoise = id;
+		else if (getDish(id).type == 'main dish') mainChoise = id;
+		else if (getDish(id).type == 'dessert') dessertChoise = id;
+		else return false;
 	}
 
 	//Removes dish from menu

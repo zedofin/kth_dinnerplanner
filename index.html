@@ -78,11 +78,10 @@
   	<div name="content" class="row">
 
 <!-- ///////////  VIEW 1 -->
-	  <div id="view1" class="row">
-		<div class="col-sm-8">
-	    	<input type="button" value="Generate" onClick="goToView3()"/>
-	    </div>
-	  </div>
+	<div id="view1">
+		<text id="text"></text>
+	    <input type="button" id="Button1" value="Press to explore Homelette"onClick="goToView3()"/>
+	</div>
 <!-- ///////////  VIEW 3 -->
 
     <div id="view3" class="row">
@@ -220,5 +219,13 @@
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
 	<script src="js/view/exampleViewController.js"></script>
+	  <script>
+
+function goToView3() {
+	document.getElementById("view1").style.display = "none";
+	document.getElementById("view2").style.display = "block";
+	document.getElementById("view3").style.display = "block";
+}
+</script>
   </body>
 </html>

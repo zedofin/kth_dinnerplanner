@@ -68,19 +68,22 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 2 
-		if (getDish(id).type == 'starter') starterChoise = id;
-		else if (getDish(id).type == 'main dish') mainChoise = id;
-		else if (getDish(id).type == 'dessert') dessertChoise = id;
-		else return false;
+		var thisType = getDish(id).type;
+
+		for (var i = 0; i < menuDishes.length; i++){
+			if (getDish(menuDishes[i]).type == thisType){
+				menuDishes.splice(i, 1);
+			}
+		}
+
+		menuDishes.push(id);
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 2
-		if (getDish(id).type == 'starter') starterChoise = 0;
-		else if (getDish(id).type == 'main dish') mainChoise = 0;
-		else if (getDish(id).type == 'dessert') dessertChoise = 0;
-		else return false;
+		var index = menuDishes.indexOf(id);
+		if (index > -1) menuDishes.splice(index, 1);
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

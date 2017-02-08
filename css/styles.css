@@ -5,11 +5,29 @@ body {
 }
 
 #view1 {
-	display: none;
+	display: block;
+	background-color: #feffe7;
+	position: fixed;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0; 
+}
+
+#Button1 {
+    background-color: #f3ebb8;
+    height: 200px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+
 }
 
 #view2 {
-	display: block;
+	display: none;
 }
 
 #view3 {
@@ -17,7 +35,7 @@ body {
 }
 
 #view4 {
-	display: block;
+	display: none;
 }
 
 #view5 {

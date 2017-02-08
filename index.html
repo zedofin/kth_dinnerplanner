@@ -30,16 +30,41 @@
                     <h1>My Dinner</h1>
                 </li>
                 <li>
-                    <input type="number" id="numberOfGuests" value="2"/>
+                    <input type="number" id="numberOfGuests" value="1"/>
                 </li>
                 <li>
                     <p>Dish name</p>
                 </li>
                 <li>
-                    <p>Pending</p>
+                	<table>
+                		<tr>
+	                		<td>
+			                    <p><span id="starter"></span></p>
+			                </td>
+			                <td>
+			                	<p><span id="starterPrice"></span></p>
+			                </td>
+		                </tr>
+                		<tr>
+	                		<td>
+			                    <p><span id="mainDish"></span></p>
+			                </td>
+			                <td>
+			                	<p><span id="mainDishPrice"></span></p>
+			                </td>
+		                </tr>
+                		<tr>
+	                		<td>
+			                    <p><span id="dessert"></span></p>
+			                </td>
+			                <td>
+			                	<p><span id="dessertPrice"></span></p>
+			                </td>
+		                </tr>
+					</table>
                 </li>
                 <li>
-                    <p id="total">Total</p>
+                    <p>Total cost: <span id="totalCost"></span></p>
                 </li>
                 <li>
                     <input type="button" value="Confirm Dinner"/>
@@ -84,16 +109,16 @@
 <!-- ///////////  VIEW 4 -->
 	<div id="view4" class="row">
       <div class="row">
-        <div class="col-sm-4">
-          <h1>LASAGNE</h1>
-          <img src="images/toast.jpg" /> <br />
+        <div class="col-sm-3">
+          <h2 id="dishName">LASAGNE</h2>
+          <img id="dishImage" src="images/toast.jpg" /> <br />
           <p>Lorem ipsum </p>
           <input type="button" value="back to Select Dish" />
         </div>
 
-        <div class="col-sm-4">
-          <h1>4 people</h1>
-          Lorem ipsum <br />
+        <div class="col-sm-5">
+          <h3 id="dishPeople">Ingredients for 1 people</h3>
+          <p><span id="dishIngredients"></span></p>
           <input type="button" value="Confirm Dish" />
         </div>
 
@@ -101,8 +126,8 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <h1>PREPARATION </h1>
-          <p>Lorem ipsum </p>
+          <h3>Preparation</h3>
+          <p><span id="dishPreparation"></span></p>
         </div>
       </div>
     </div>
@@ -180,7 +205,7 @@
 
 
 
-<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
 
   	</div>
   </div>

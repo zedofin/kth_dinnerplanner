@@ -3,6 +3,9 @@ body {
     background-repeat: no-repeat;
     background-position: right top;
 }
+#sidebar-wrapper {
+	display: none;
+}
 
 #view1 {
 	display: block;

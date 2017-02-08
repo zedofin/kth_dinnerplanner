@@ -4,31 +4,192 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
-
+    <title>HOMELETTE</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">
 
   </head>
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
 
+
+  <div name="title" class="row">
+  	<div class="col-sm-12"><h1>HOMELETTE</h1></div>
+  </div>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+
+  		<!-- ///////////  VIEW 2 -->
+
+  		<ul class="sidebar-nav" id="view2" style="background-color: lightblue; border: 2px solid #73AD21;">
+                <li class="sidebar-brand">
+                    <h1>My Dinner</h1>
+                </li>
+                <li>
+                    <input type="number" id="numberOfGuests" value="2"/>
+                </li>
+                <li>
+                    <p>Dish name</p>
+                </li>
+                <li>
+                    <p>Pending</p>
+                </li>
+                <li>
+                    <p id="total">Total</p>
+                </li>
+                <li>
+                    <input type="button" value="Confirm Dinner"/>
+                </li>
+
+        </ul>
+  	</div>
+
+	<div id="page-content-wrapper">
+    <div class="container-fluid">
+  	<div name="content" class="row">
+
+<!-- ///////////  VIEW 1 -->
+	  <div id="view1" class="row">
+		<div class="col-sm-8">
+	    	<input type="button" value="Generate" onClick="goToView3()"/>
+	    </div>
+	  </div>
+<!-- ///////////  VIEW 3 -->
+
+    <div id="view3" class="row">
+		<div class="col-sm-8">
+      <div class="row">
+        Select dish <br />
+        <input type="text" placeholder="Enter Keywords" />
+        <input type="button" value="Search" onClick="Search()" />
+
+        <select>
+          <option value="cat1">Category 1</option>
+          <option value="cat2">Category 2</option>
+          <option value="cat3">Category 3</option>
+        </select>
+      </div>
+
+      <div class="row">
+        Lorem ipsum
+      </div>
+    </div>
+  </div>
+
+
+<!-- ///////////  VIEW 4 -->
+	<div id="view4" class="row">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1>LASAGNE</h1>
+          <img src="images/toast.jpg" /> <br />
+          <p>Lorem ipsum </p>
+          <input type="button" value="back to Select Dish" />
+        </div>
+
+        <div class="col-sm-4">
+          <h1>4 people</h1>
+          Lorem ipsum <br />
+          <input type="button" value="Confirm Dish" />
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h1>PREPARATION </h1>
+          <p>Lorem ipsum </p>
+        </div>
+      </div>
+    </div>
+
+
+<!-- ///////////  VIEW 5 -->
+
+    <div id="view5" class="row">
+      <div class="row">
+        <div class="col-sm-6 alignLeft">
+          <h1>My Dinner: 4 people</h1>
+        </div>
+
+        <div class="col-sm-6 alignRight">
+          <input type="button" value="Go back and edit dinner" />
+        </div>
+
+      </div>
+
+      <div class="row alignCenter">
+        <div class="col-sm-12">
+          <p>Lorem ipsum </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 alignCenter">
+          <input type="button" value="Print full recipe" />
+        </div>
+      </div>
+    </div>
+
+<!-- ///////////  VIEW 6 -->
+
+
+
+    <div id="view5" class="row">
+      <div class="row">
+        <div class="col-sm-6 alignLeft">
+          <h1>My Dinner: 4 people</h1>
+        </div>
+
+        <div class="col-sm-6 alignRight">
+          <input type="button" value="Go back and edit dinner" />
+        </div>
+
+      </div>
+
+      <div class="row alignLeft">
+        <div class="col-sm-12">
+          <h1>Lasagne</h1>
+          <p>Lorem ipsum </p>
+        </div>
+      </div>
+
+      <div class="row alignLeft">
+        <div class="col-sm-12">
+          <h1>Lasagne</h1>
+          <p>Lorem ipsum </p>
+        </div>
+      </div>
+
+      <div class="row alignLeft">
+        <div class="col-sm-12">
+          <h1>Lasagne</h1>
+          <p>Lorem ipsum </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+  	</div>
+  </div>
+  </div>
+</div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>

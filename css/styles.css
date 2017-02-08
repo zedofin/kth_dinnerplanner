@@ -1,0 +1,30 @@
+body {
+    background-image: url("bgimages/omelette.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#view1 {
+	display: none;
+}
+
+#view2 {
+	display: block;
+}
+
+#view3 {
+	display: none;
+}
+
+#view4 {
+	display: block;
+}
+
+#view5 {
+	display: none;
+}
+
+#view6 {
+	display: none;
+}
+

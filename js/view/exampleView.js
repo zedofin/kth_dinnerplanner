@@ -4,7 +4,9 @@ var ExampleView = function (container, model) {
 	// Get all the relevant elements of the view (ones that show data
   	// and/or ones that responed to interaction)
 
-
+	model.addDishToMenu(1);
+	model.addDishToMenu(100);
+	model.addDishToMenu(200);
 	var chosenDish = 100;
 	// getting elements from html
 	 this.numberOfGuests = container.find("#numberOfGuests");

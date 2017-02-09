@@ -6,7 +6,7 @@ var ExampleView = function (container, model) {
 
 
 	var chosenDish = 100;
-
+	// getting elements from html
 	 this.numberOfGuests = container.find("#numberOfGuests");
 	 this.starter = container.find("#starter");
 	 this.mainDish = container.find("#mainDish");
@@ -18,8 +18,20 @@ var ExampleView = function (container, model) {
 	 this.dishImage = container.find("#dishImage");
 	 this.dishPreparation = container.find("#dishPreparation");
 	 this.dishIngredients = container.find("#dishIngredients");
+	 // View 5
+	 this.myDinnerXPeople = container.find("#myDinnerXPeople");
+	 this.starterImage = container.find("#starterImage");
+	 this.mainImage = container.find("#mainImage");
+	 this.dessertImage = container.find("#dessertImage");
+	 this.totalPrice = container.find("#totalPrice");
+	 this.starter5 = container.find("#starter5");
+	 this.main5 = container.find("#main5");
+	 this.dessert5 = container.find("#dessert5");
+	 this.starterPrice5 = container.find("#starterPrice5");
+	 this.mainPrice5 = container.find("#mainPrice5");
+	 this.dessertPrice5 = container.find("#dessertPrice5");
 	 
-
+	 // get things from model and put in html
 	 this.starter.html(model.getDish(model.getSelectedDish("starter")).name);
 	 this.mainDish.html(model.getDish(model.getSelectedDish("main dish")).name);
 	 this.dessert.html(model.getDish(model.getSelectedDish("dessert")).name);
@@ -32,7 +44,6 @@ var ExampleView = function (container, model) {
 	 this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
 	 this.dishPreparation.html(model.getDish(chosenDish).description);
 	 
-
 	 var ings = model.getDish(chosenDish).ingredients;
 	 var dishIngredientsHtml = "<table>";
 	 for (i in ings){
@@ -40,14 +51,7 @@ var ExampleView = function (container, model) {
 	 }
 	 dishIngredientsHtml += "</table>";
 
-
-
-
 	 this.dishIngredients.html(dishIngredientsHtml);
-
-	 
-
-
 
 	 this.plusButton = container.find("#plusGuest");
 	 this.minusButton = container.find("#minusGuest");
@@ -58,6 +62,22 @@ var ExampleView = function (container, model) {
 		    $("#dishPeople").html("Ingredients for " + $("#numberOfGuests").val() + " people");
 		});
 
+	// View 5
+	this.myDinnerXPeople.html("My Dinner: " + this.numberOfGuests.attr("value"));
+
+	this.starter5.html(model.getDish(model.getSelectedDish("starter")).name);
+	this.main5.html(model.getDish(model.getSelectedDish("main dish")).name);
+	this.dessert5.html(model.getDish(model.getSelectedDish("dessert")).name);
+	 
+	this.starterPrice5.html(model.getDishPrice("starter") + " SEK");
+	this.mainPrice5.html(model.getDishPrice("main dish")+ " SEK");
+	this.dessertPrice5.html(model.getDishPrice("dessert")+ " SEK");
+
+	this.starterImage.attr("src","images/"+model.getDish(model.getSelectedDish("starter")).image);
+	this.mainImage.attr("src","images/"+model.getDish(model.getSelectedDish("main dish")).image);
+	this.dessertImage.attr("src","images/"+model.getDish(model.getSelectedDish("dessert")).image);
+
+	this.totalPrice.html(model.getTotalMenuPrice() + " SEK");
 
 
 	 

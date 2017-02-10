@@ -69,7 +69,7 @@ var ExampleView = function (container, model) {
 		});
 
 	// View 3
-	 var results = model.getFullMenu();
+	 var results = model.getAllDishes("main dish");
 	 var searchResultsHtml = "<table id=\"searchResultsOuterTable\"><tr>";
 	 for (i in results){
 	 	searchResultsHtml += "<td><table id=\"searchResultsInnerTable\"><tr><td><img id=\"selectThisDish\" onClick=\"selectThisDish()\" src=\"images/" + results[i].image +"\" /></td></tr><tr><td>" + results[i].name +"</td></tr><tr><td>" + results[i].description +"</td></tr></table></td>";

@@ -209,7 +209,7 @@
     <div id="view6" class="row view">
       <div class="row">
         <div class="col-sm-6 alignLeft">
-          <h1>My Dinner: 4 people</h1>
+          <h1 id="myDinnerXPeople">My Dinner: 4 people</h1>
         </div>
 
         <div class="col-sm-6 alignRight">
@@ -237,16 +237,24 @@
   	<!-- The application JavaScript code -->
   	<script src="js/app.js"></script>
   	<script src="js/model/dinnerModel.js"></script>
-  	<script src="js/view/exampleView.js"></script>
-  	<script src="js/view/exampleViewController.js"></script>
+  	<!-- <script src="js/view/exampleView.js"></script> -->
+    <script src="js/viewController.js"></script>
+    <script src="js/view/view1.js"></script>
+    <script src="js/view/view2.js"></script>
+    <!-- <script src="js/view/view3.js"></script> -->
+    <script src="js/view/view4.js"></script>
+    <script src="js/view/view5.js"></script>
+    <script src="js/view/view6.js"></script>
     <script src="js/viewController.js"></script>
     <script>
     $(document).ready(function(){
+      $("#wrapper").toggleClass("toggled");
       $("#menu-toggle").click(function(e) {
           e.preventDefault();
           $("#wrapper").toggleClass("toggled");
       });
     });
+
       // Add listeners to buttons
 document.getElementById("createNewDinner").addEventListener("click", createNewDinner);
 document.getElementById("confirmDinner").addEventListener("click", confirmDinner);
@@ -258,7 +266,7 @@ document.getElementById("printFullRecipe").addEventListener("click", printFullRe
 document.getElementById("goBack").addEventListener("click", goBack);
 
 // Add listeners to view3 images
-document.getElementById("selectThisDish").addEventListener("click", selectThisDish());
+//document.getElementById("selectThisDish").addEventListener("click", selectThisDish);
 
 
 
@@ -308,7 +316,7 @@ function confirmDinner() {
 
 function backToSelectDish() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "block";
+  //document.getElementById("view2").style.display = "block";
   document.getElementById("view3").style.display = "block";
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
@@ -318,17 +326,17 @@ function backToSelectDish() {
 
 function confirmDish() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "none";
-  document.getElementById("view3").style.display = "none";
+  //document.getElementById("view2").style.display = "block";
+  document.getElementById("view3").style.display = "block";
   document.getElementById("view4").style.display = "none";
-  document.getElementById("view5").style.display = "block";
+  document.getElementById("view5").style.display = "none";
   document.getElementById("view6").style.display = "none";
-  hideSideBar();
+  showSideBar();
 }
 
 function goBackAndEditDinner() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "block";
+  //document.getElementById("view2").style.display = "block";
   document.getElementById("view3").style.display = "block";
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
@@ -338,7 +346,7 @@ function goBackAndEditDinner() {
 
 function printFullRecipe() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "none";
+  //document.getElementById("view2").style.display = "none";
   document.getElementById("view3").style.display = "none";
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
@@ -348,7 +356,7 @@ function printFullRecipe() {
 
 function goBack() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "none";
+  //document.getElementById("view2").style.display = "none";
   document.getElementById("view3").style.display = "none";
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "block";
@@ -358,7 +366,7 @@ function goBack() {
 
 function selectThisDish() {
   document.getElementById("view1").style.display = "none";
-  document.getElementById("view2").style.display = "block";
+  //document.getElementById("view2").style.display = "block";
   document.getElementById("view3").style.display = "none";
   document.getElementById("view4").style.display = "block";
   document.getElementById("view5").style.display = "none";
@@ -370,5 +378,7 @@ function selectThisDish() {
 
 
     </script>
+
+    <script src="js/view/view3.js"></script>
   </body>
 </html>

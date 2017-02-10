@@ -14,8 +14,14 @@
   <body>
 
 
-  <div name="title" class="row">
-  	<div class="col-sm-12"><h1>HOMELETTE</h1></div>
+  <div name="title" class="row" id="viewTitle">
+    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">&#9776;</a> 
+  	<div class="col-sm-3" id="viewTitleTitle">
+      <h1>HOMELETTE</h1> 
+    </div>
+    <div class="col-sm-4" id="viewTitleSlogan">
+      <span class="viewTitleSlogan">From the best chefs in the world directly into your kitchen</span>
+    </div>
   </div>
 
   <div id="wrapper">
@@ -25,17 +31,19 @@
 
   		<!-- ///////////  VIEW 2 -->
 
-  		<ul class="sidebar-nav" id="view2" style="background-color: lightblue; border: 2px solid #73AD21;">
+  		<ul compact class="sidebar-nav" id="view2">
                 <li class="sidebar-brand">
-                    <h1>My Dinner</h1>
+                    <h4>My Dinner</h4>
                 </li>
                 <li>
-                    <input type="number" id="numberOfGuests" value="1"/>
+                    People: <input type="number" id="numberOfGuests" value="1" />
                 </li>
-                <li>
-                    <p>Dish name</p>
+                <li class="listDishName">
+                    <hr>
+                    <span id="t1">Dish name </span><span id="t2">Cost</span>
+                    <hr>
                 </li>
-                <li>
+                <li id="listDishes">
                 	<table>
                 		<tr>
 	                		<td>
@@ -61,13 +69,14 @@
 			                	<p><span id="dessertPrice"></span></p>
 			                </td>
 		                </tr>
-					</table>
+				        	</table>
                 </li>
-                <li>
+                <li id="listTotalCost">
+                    <hr>
                     <p>Total cost: <span id="totalCost"></span></p>
                 </li>
                 <li>
-                    <input type="button" value="Confirm Dinner"/>
+                    <input type="button" id="confirmDinner" class="smallButton" value="Confirm Dinner" onClick="confirmDinner()"/>
                 </li>
 
         </ul>
@@ -78,47 +87,66 @@
   	<div name="content" class="row">
 
 <!-- ///////////  VIEW 1 -->
-	<div id="view1">
-		<text id="text"></text>
-	    <input type="button" id="Button1" value="Press to explore Homelette"onClick="goToView3()"/>
+
+
+	<div id="view1" class="view">
+    <div id="view1Box">
+      <h2><span id="view1Title">A Home Dinner Service</span></h2>
+      <hr>
+  		<p><span id="view1Text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>
+      <p>start quickly</p>
+  	  <input type="button" id="createNewDinner" class="bigButton" value="Create new dinner" onClick="createNewDinner()" />
+    </div>
 	</div>
+
+
 <!-- ///////////  VIEW 3 -->
 
-    <div id="view3" class="row">
-		<div class="col-sm-8">
-      <div class="row">
-        Select dish <br />
-        <input type="text" placeholder="Enter Keywords" />
-        <input type="button" value="Search" onClick="Search()" />
 
-        <select>
-          <option value="cat1">Category 1</option>
-          <option value="cat2">Category 2</option>
-          <option value="cat3">Category 3</option>
-        </select>
-      </div>
+    <div id="view3" class="row view">
+  		<div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-6">
+              <h4>Select dish </h4>
+              <hr style="width:150%;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+              <input type="text" placeholder="Enter Keywords" /> 
+              in
+              <select>
+                <option value="starter">Starters</option>
+                <option value="main dish">Main dishes</option>
+                <option value="dessert">Desserts</option>
+              </select>
+          </div>
 
+          <div class="col-sm-4">
+              <input type="button" id="searchDishes" value="Search" class="smallButton" />
+          </div>
+        </div>
+<hr>
       <div class="row">
-        Lorem ipsum
+        <span id="searchResults"></span>
       </div>
     </div>
   </div>
-
-
 <!-- ///////////  VIEW 4 -->
-	<div id="view4" class="row">
+
+	<div id="view4" class="row view">
       <div class="row">
         <div class="col-sm-6">
           <h2 id="dishName">LASAGNE</h2>
           <img id="dishImage" src="images/toast.jpg" /> <br />
           <p>Lorem ipsum </p>
-          <input type="button" value="back to Select Dish" />
+          <input type="button" id="backToSelectDish" class="smallButton" value="back to Select Dish" />
         </div>
 
         <div class="col-sm-6">
           <h3 id="dishPeople">Ingredients for 1 people</h3>
           <p><span id="dishIngredients"></span></p>
-          <input type="button" value="Confirm Dish" />
+          <input type="button" id="confirmDish" class="smallButton" value="Confirm Dish" />
         </div>
 
       </div>
@@ -131,21 +159,20 @@
       </div>
     </div>
 
-
 <!-- ///////////  VIEW 5 -->
 
-    <div id="view5" class="row">
+    <div id="view5" class="row view">
       <div class="row">
         <div class="col-sm-6 alignLeft">
           <h1 id="myDinnerXPeople">My Dinner: 4 people</h1>
         </div>
 
         <div class="col-sm-6 alignRight">
-          <input type="button" value="Go back and edit dinner" />
+          <input type="button" id="goBackAndEditDinner" class="smallButton" value="Go back and edit dinner" />
         </div>
 
       </div>
-
+<hr>
       <div class="row">
         <div class="col-sm-3">
           <h2 id="starter5">Lasagne</h2>
@@ -170,7 +197,7 @@
 
       <div class="row">
         <div class="col-sm-12 alignCenter">
-          <input type="button" value="Print full recipe" />
+          <input type="button" id="printFullRecipe" class="bigButton" value="Print full recipe" />
         </div>
       </div>
     </div>
@@ -179,48 +206,25 @@
 
 
 
-    <div id="view6" class="row">
+    <div id="view6" class="row view">
       <div class="row">
         <div class="col-sm-6 alignLeft">
           <h1>My Dinner: 4 people</h1>
         </div>
 
         <div class="col-sm-6 alignRight">
-          <input type="button" value="Go back and edit dinner" />
-        </div>
-
-      </div>
-
-      <div class="row alignLeft">
-        <div class="col-sm-12">
-          <h1>Lasagne</h1>
-          <p>Lorem ipsum </p>
+          <input type="button" id="goBack" class="smallButton" value="Go back and edit dinner" />
         </div>
       </div>
-
-      <div class="row alignLeft">
+<hr>
+      <div class="row">
         <div class="col-sm-12">
-          <h1>Lasagne</h1>
-          <p>Lorem ipsum </p>
-        </div>
-      </div>
-
-      <div class="row alignLeft">
-        <div class="col-sm-12">
-          <h1>Lasagne</h1>
-          <p>Lorem ipsum </p>
+          <span id="fullRecipe"></span>
         </div>
       </div>
     </div>
 
 
-
-
-
-
-
-
-<!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
 
   	</div>
   </div>
@@ -230,19 +234,142 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
-	  <script>
+  	<!-- The application JavaScript code -->
+  	<script src="js/app.js"></script>
+  	<script src="js/model/dinnerModel.js"></script>
+  	<script src="js/view/exampleView.js"></script>
+  	<script src="js/view/exampleViewController.js"></script>
+    <script src="js/viewController.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
+    });
+      // Add listeners to buttons
+document.getElementById("createNewDinner").addEventListener("click", createNewDinner());
+document.getElementById("confirmDinner").addEventListener("click", confirmDinner());
+document.getElementById("searchDishes").addEventListener("click", searchDishes());
+document.getElementById("backToSelectDish").addEventListener("click", backToSelectDish());
+document.getElementById("confirmDish").addEventListener("click", confirmDish());
+document.getElementById("goBackAndEditDinner").addEventListener("click", goBackAndEditDinner());
+document.getElementById("printFullRecipe").addEventListener("click", printFullRecipe());
+document.getElementById("goBack").addEventListener("click", goBack());
+document.getElementById("confirmDinner").addEventListener("click", confirmDinner());
 
-function goToView3() {
-	document.getElementById("view1").style.display = "none";
-	document.getElementById("view2").style.display = "block";
-	document.getElementById("view4").style.display = "block";
-	document.getElementById("sidebar-wrapper").style.display = "block";
+// Add listeners to view3 images
+//document.getElementById("selectThisDish").addEventListener("click", selectThisDish());
+
+
+
+function hideSideBar(){
+  document.getElementById("wrapper").classList.add('toggled');
+  document.getElementById("wrapper").style.paddingLeft= "0px";
+  document.getElementById("sidebar-wrapper").style.width= "0px";
+  document.getElementById("sidebar-wrapper").style.marginLeft= "-250px";
+  document.getElementById("view2").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "none";
 }
-</script>
+
+function showSideBar(){
+  document.getElementById("wrapper").classList.add('toggled');
+  document.getElementById("wrapper").style.paddingLeft= "250px";
+  document.getElementById("sidebar-wrapper").style.width= "250px";
+  document.getElementById("view2").style.display = "block";
+  document.getElementById("sidebar-wrapper").style.display = "block";
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// The functions
+
+function createNewDinner() {
+  // TODO: NOLLAA MENULISTA, POISTA VANHAT VALINNAT
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view3").style.display = "block";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "none";
+  showSideBar();
+}
+
+function confirmDinner() {
+  document.getElementById("view1").style.display = "block";
+  document.getElementById("view3").style.display = "none";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "none";
+  hideSideBar();
+}
+
+function searchDishes() {
+  confirmDinner();
+}
+
+function backToSelectDish() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "block";
+  document.getElementById("view3").style.display = "block";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "block";
+}
+
+function confirmDish() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "none";
+  document.getElementById("view3").style.display = "none";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "block";
+  document.getElementById("view6").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "none";
+}
+
+function goBackAndEditDinner() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "block";
+  document.getElementById("view3").style.display = "block";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "block";
+}
+
+function printFullRecipe() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "none";
+  document.getElementById("view3").style.display = "none";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "block";
+  document.getElementById("sidebar-wrapper").style.display = "none";
+}
+
+function goBack() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "none";
+  document.getElementById("view3").style.display = "none";
+  document.getElementById("view4").style.display = "none";
+  document.getElementById("view5").style.display = "block";
+  document.getElementById("view6").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "none";
+}
+
+function selectThisDish() {
+  document.getElementById("view1").style.display = "none";
+  document.getElementById("view2").style.display = "block";
+  document.getElementById("view3").style.display = "none";
+  document.getElementById("view4").style.display = "block";
+  document.getElementById("view5").style.display = "none";
+  document.getElementById("view6").style.display = "none";
+  document.getElementById("sidebar-wrapper").style.display = "block";
+}
+
+
+
+
+    </script>
   </body>
 </html>

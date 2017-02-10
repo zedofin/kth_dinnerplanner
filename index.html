@@ -76,7 +76,7 @@
                     <p>Total cost: <span id="totalCost"></span></p>
                 </li>
                 <li>
-                    <input type="button" id="confirmDinner" class="smallButton" value="Confirm Dinner" onClick="confirmDinner()"/>
+                    <input type="button" id="confirmDinner" class="smallButton" value="Confirm Dinner"/>
                 </li>
 
         </ul>
@@ -248,18 +248,17 @@
       });
     });
       // Add listeners to buttons
-document.getElementById("createNewDinner").addEventListener("click", createNewDinner());
-document.getElementById("confirmDinner").addEventListener("click", confirmDinner());
-document.getElementById("searchDishes").addEventListener("click", searchDishes());
-document.getElementById("backToSelectDish").addEventListener("click", backToSelectDish());
-document.getElementById("confirmDish").addEventListener("click", confirmDish());
-document.getElementById("goBackAndEditDinner").addEventListener("click", goBackAndEditDinner());
-document.getElementById("printFullRecipe").addEventListener("click", printFullRecipe());
-document.getElementById("goBack").addEventListener("click", goBack());
-document.getElementById("confirmDinner").addEventListener("click", confirmDinner());
+document.getElementById("createNewDinner").addEventListener("click", createNewDinner);
+document.getElementById("confirmDinner").addEventListener("click", confirmDinner);
+//document.getElementById("searchDishes").addEventListener("click", searchDishes);
+document.getElementById("backToSelectDish").addEventListener("click", backToSelectDish);
+document.getElementById("confirmDish").addEventListener("click", confirmDish);
+document.getElementById("goBackAndEditDinner").addEventListener("click", goBackAndEditDinner);
+document.getElementById("printFullRecipe").addEventListener("click", printFullRecipe);
+document.getElementById("goBack").addEventListener("click", goBack);
 
 // Add listeners to view3 images
-//document.getElementById("selectThisDish").addEventListener("click", selectThisDish());
+document.getElementById("selectThisDish").addEventListener("click", selectThisDish());
 
 
 
@@ -295,17 +294,17 @@ function createNewDinner() {
 }
 
 function confirmDinner() {
-  document.getElementById("view1").style.display = "block";
+  document.getElementById("view1").style.display = "none";
   document.getElementById("view3").style.display = "none";
   document.getElementById("view4").style.display = "none";
-  document.getElementById("view5").style.display = "none";
+  document.getElementById("view5").style.display = "block";
   document.getElementById("view6").style.display = "none";
   hideSideBar();
 }
 
-function searchDishes() {
+/*function searchDishes() {
   confirmDinner();
-}
+}*/
 
 function backToSelectDish() {
   document.getElementById("view1").style.display = "none";
@@ -314,7 +313,7 @@ function backToSelectDish() {
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
   document.getElementById("view6").style.display = "none";
-  document.getElementById("sidebar-wrapper").style.display = "block";
+  showSideBar();
 }
 
 function confirmDish() {
@@ -324,7 +323,7 @@ function confirmDish() {
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "block";
   document.getElementById("view6").style.display = "none";
-  document.getElementById("sidebar-wrapper").style.display = "none";
+  hideSideBar();
 }
 
 function goBackAndEditDinner() {
@@ -334,7 +333,7 @@ function goBackAndEditDinner() {
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
   document.getElementById("view6").style.display = "none";
-  document.getElementById("sidebar-wrapper").style.display = "block";
+  showSideBar();
 }
 
 function printFullRecipe() {
@@ -344,7 +343,7 @@ function printFullRecipe() {
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "none";
   document.getElementById("view6").style.display = "block";
-  document.getElementById("sidebar-wrapper").style.display = "none";
+  hideSideBar();
 }
 
 function goBack() {
@@ -354,7 +353,7 @@ function goBack() {
   document.getElementById("view4").style.display = "none";
   document.getElementById("view5").style.display = "block";
   document.getElementById("view6").style.display = "none";
-  document.getElementById("sidebar-wrapper").style.display = "none";
+  hideSideBar();
 }
 
 function selectThisDish() {
@@ -364,7 +363,7 @@ function selectThisDish() {
   document.getElementById("view4").style.display = "block";
   document.getElementById("view5").style.display = "none";
   document.getElementById("view6").style.display = "none";
-  document.getElementById("sidebar-wrapper").style.display = "block";
+  showSideBar();
 }
 
 

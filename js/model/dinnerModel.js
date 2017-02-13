@@ -5,11 +5,38 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 
 	var numberOfGuests = 27;
-	var menuDishes = [1,100,200];
+	var menuDishes = [1,101,200];
+	var observers = [];
+	var showDish = 0;
+
+	this.getShowDish = function(){
+		return showDish;
+	}
+
+	this.setShowDish = function(id){
+		showDish = id;
+		notifyObservers();
+	}
+
+	this.updateNumberOfGuests = function(){
+		numberOfGuests = document.getElementById("numberOfGuests").val();
+	}
+
+	this.addObserver = function(observer) { 
+		observers.push(observer);
+	}
+
+	var notifyObservers = function(obj) {
+		for (observer in observers){
+			observers[observer].update();
+			//console.log(observers[observer]);
+		}
+	} 
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
 		numberOfGuests = num;
+		notifyObservers();
 	}
 
 	// should return 
@@ -87,6 +114,7 @@ var DinnerModel = function() {
 		}
 
 		menuDishes.push(id);
+		notifyObservers();
 	}
 
 	//Removes dish from menu
@@ -94,6 +122,7 @@ var DinnerModel = function() {
 		//TODO Lab 2
 		var index = menuDishes.indexOf(id);
 		if (index > -1) menuDishes.splice(index, 1);
+		notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

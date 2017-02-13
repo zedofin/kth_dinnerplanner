@@ -1,3 +1,4 @@
+//document.getElementById("numberOfGuests").addEventListener("blur", updateNumberOfGuests);
 
 
 
@@ -8,20 +9,6 @@ $(document).ready(function(){
       $("#wrapper").toggleClass("toggled");
   });
 });
-
-      // Add listeners to buttons
-document.getElementById("createNewDinner").addEventListener("click", createNewDinner);
-document.getElementById("confirmDinner").addEventListener("click", confirmDinner);
-//document.getElementById("searchDishes").addEventListener("click", searchDishes);
-document.getElementById("backToSelectDish").addEventListener("click", backToSelectDish);
-document.getElementById("confirmDish").addEventListener("click", confirmDish);
-document.getElementById("goBackAndEditDinner").addEventListener("click", goBackAndEditDinner);
-document.getElementById("printFullRecipe").addEventListener("click", printFullRecipe);
-document.getElementById("goBack").addEventListener("click", goBack);
-
-// Add listeners to view3 images
-//document.getElementById("selectThisDish").addEventListener("click", selectThisDish);
-
 
 
 function hideSideBar(){
@@ -45,23 +32,10 @@ function showSideBar(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // The functions
 
-function createNewDinner() {
-  // TODO: NOLLAA MENULISTA, POISTA VANHAT VALINNAT
-  document.getElementById("view1").style.display = "none";
-  document.getElementById("view3").style.display = "block";
-  document.getElementById("view4").style.display = "none";
-  document.getElementById("view5").style.display = "none";
-  document.getElementById("view6").style.display = "none";
-  showSideBar();
-}
+
 
 function confirmDinner() {
-  document.getElementById("view1").style.display = "none";
-  document.getElementById("view3").style.display = "none";
-  document.getElementById("view4").style.display = "none";
-  document.getElementById("view5").style.display = "block";
-  document.getElementById("view6").style.display = "none";
-  hideSideBar();
+
 }
 
 /*function searchDishes() {

@@ -48,6 +48,7 @@ var View3 = function (container, model) {
 	 }); */
 
 	 	this.selectThisDish = container.find("img");
+	 	this.selectViewDish = container.find("img");
 
 	 	this.selectThisDish.click(function(e){
 	 	  //model.setShowDish(event.target.number);

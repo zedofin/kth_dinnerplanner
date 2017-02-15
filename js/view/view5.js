@@ -26,20 +26,24 @@ var View5 = function (container, model) {
 	 	// update the number of people
 	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
 
-		this.starter5.html(model.getDish(model.getSelectedDish("starter")).name);
-		this.main5.html(model.getDish(model.getSelectedDish("main dish")).name);
-		this.dessert5.html(model.getDish(model.getSelectedDish("dessert")).name);
-		 
-		this.starterPrice5.html(model.getDishPrice("starter") + " SEK");
-		this.mainPrice5.html(model.getDishPrice("main dish")+ " SEK");
-		this.dessertPrice5.html(model.getDishPrice("dessert")+ " SEK");
+		if (model.getSelectedDish("starter")) {
+			this.starter5.html(model.getDish(model.getSelectedDish("starter")).name);
+			this.starterPrice5.html(model.getDishPrice("starter") + " SEK");
+			this.starterImage.attr("src","images/"+model.getDish(model.getSelectedDish("starter")).image);
+		}
 
-		this.starterImage.attr("src","images/"+model.getDish(model.getSelectedDish("starter")).image);
-		this.mainImage.attr("src","images/"+model.getDish(model.getSelectedDish("main dish")).image);
-		this.dessertImage.attr("src","images/"+model.getDish(model.getSelectedDish("dessert")).image);
+		if (model.getSelectedDish("main dish")) {
+			this.main5.html(model.getDish(model.getSelectedDish("main dish")).name);
+			this.mainPrice5.html(model.getDishPrice("main dish")+ " SEK");
+			this.mainImage.attr("src","images/"+model.getDish(model.getSelectedDish("main dish")).image);
+		}
+			
+		if (model.getSelectedDish("dessert")) {
+			this.dessert5.html(model.getDish(model.getSelectedDish("dessert")).name);
+			this.dessertPrice5.html(model.getDishPrice("dessert")+ " SEK");
+			this.dessertImage.attr("src","images/"+model.getDish(model.getSelectedDish("dessert")).image);
+		}
 
-
-	 	
 	 }
 
 }

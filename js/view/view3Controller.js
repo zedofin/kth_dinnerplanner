@@ -1,4 +1,4 @@
-var View3Controller = function(view, model ) {
+var View3Controller = function(view, model, container ) {
 
 	 view.searchDishes.click(function(){
 	 	//view.searchResults = container.find("#searchResults");
@@ -10,19 +10,20 @@ var View3Controller = function(view, model ) {
 	 	//if (view.dishKeyword.val() == "") {results = model.getAllDishes(view.dishType.options[view.dishType.options.selectedIndex].value);}
 	 	//else {results = model.getAllDishes(view.dishType.options[view.dishType.options.selectedIndex].value,view.dishKeyword.val());}
 
-	 	console.log(view.dishType);
+	 	//console.log(view.dishType);
 
-	 	results = model.getAllDishes(view.dishType.options[view.dishType.options.selectedIndex].value,view.dishKeyword.val());
+	 	results = model.getAllDishes( view.dishType.val() , view.dishKeyword.val() );
 
+ 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
+		for (i in results){
+			searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" src="images/' + results[i].image +'" /></td></tr><tr><td>' + results[i].name + '</td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
+		}
+		searchResultsHtml += '</tr></table>';
+		view.searchResults.html(searchResultsHtml);
+		console.log(view.container);
+		view.selectViewDish = container.find("img");
 
- 		 var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
-		 for (i in results){
-		 	searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" src="images/' + results[i].image +'" /></td></tr><tr><td>' + results[i].name + '</td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
-		 }
-		 searchResultsHtml += '</tr></table>';
-		 view.searchResults.html(searchResultsHtml);
-		 view.selectviewDish = view.container.find("img");
-		 	 	view.selectviewDish.click(function(e){
+		view.selectViewDish.click(function(e){
 	 	  //model.setShowDish(event.target.number);
 	 	  model.setShowDish(e.target.id);
 		  document.getElementById("view1").style.display = "none";

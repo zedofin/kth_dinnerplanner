@@ -1,4 +1,4 @@
-Kate.var View4 = function (container, model) {	
+var View4 = function (container, model) {	
 
 	var chosenDish = model.getShowDish();
 

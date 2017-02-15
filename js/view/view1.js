@@ -7,10 +7,5 @@ var View1 = function (container, model) {
 	 	
 	}
 
-	this.createNewDinner.click(function(){
-		  document.getElementById("view1").style.display = "none";
-		  document.getElementById("view3").style.display = "block";
-		  showSideBar();
-	});
 }
 

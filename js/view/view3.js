@@ -9,22 +9,17 @@ var View3 = function (container, model) {
 
 	// View 3
 	// creating search results
-	 var results = model.getAllDishes("starter");
+	 var results = [];
 	 //var results = model.getAllDishes("starter");
 
-	 var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
-	 for (i in results){
-	 	searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="selectThisDish" number="'+ results[i].name +'" src="images/' + results[i].image +'" /></td></tr><tr><td>' + results[i].name + '</td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
-	 }
-	 searchResultsHtml += '</tr></table>';
-	 this.searchResults.html(searchResultsHtml);
+
 
 	model.addObserver(this);
 	 this.update = function(obj){
 
 	 }
 
-	 this.searchDishes.click(function(){
+/*	 this.searchDishes.click(function(){
 	 	this.searchResults = container.find("#searchResults");
 	 	this.dishType = document.getElementById("dishType");
 	 	this.dishKeyword = container.find("#dishKeyword");
@@ -50,14 +45,14 @@ var View3 = function (container, model) {
 		  document.getElementById("view6").style.display = "none";
 		  showSideBar();
 	 	});
-	 });
+	 }); */
 
 	 
 	 	this.selectThisDish = container.find("img");
 
 	 	this.selectThisDish.click(function(e){
 	 	  //model.setShowDish(event.target.number);
-	 	  console.log(model.getShowDish());
+	 	  model.setShowDish(e.target.id);
 
 		  document.getElementById("view1").style.display = "none";
 		  document.getElementById("view3").style.display = "none";

@@ -1,7 +1,7 @@
 var View5 = function (container, model) {
 
 	 // View 5
-	 this.myDinnerXPeople = container.find("#myDinnerXPeople");
+	 this.myDinnerXPeople = container.find("#numberOfPeople");
 	 this.starterImage = container.find("#starterImage");
 	 this.mainImage = container.find("#mainImage");
 	 this.dessertImage = container.find("#dessertImage");
@@ -24,7 +24,7 @@ var View5 = function (container, model) {
 	 this.update = function(obj){
 
 	 	// update the number of people
-	 	this.myDinnerXPeople.innerHtml = model.getNumberOfGuests();
+	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
 
 		this.starter5.html(model.getDish(model.getSelectedDish("starter")).name);
 		this.main5.html(model.getDish(model.getSelectedDish("main dish")).name);

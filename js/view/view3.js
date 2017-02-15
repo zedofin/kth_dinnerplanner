@@ -47,7 +47,6 @@ var View3 = function (container, model) {
 	 	});
 	 }); */
 
-	 
 	 	this.selectThisDish = container.find("img");
 
 	 	this.selectThisDish.click(function(e){

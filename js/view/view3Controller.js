@@ -27,5 +27,4 @@ var View3Controller = function(view, model ) {
 		  showSideBar();
 	 	});
 	 });
-	});
-}
+	}

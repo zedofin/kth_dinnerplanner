@@ -14,7 +14,7 @@ var View6 = function (container, model) {
 	 this.update = function(obj){
 
 		 //number of people
-		 this.myDinnerXPeople.html("My Dinner: " + model.getNumberOfGuests());
+		 this.myDinnerXPeople.html("My Dinner: " + model.getNumberOfGuests() + " people");
 
 
 		 var menu = model.getFullMenu();

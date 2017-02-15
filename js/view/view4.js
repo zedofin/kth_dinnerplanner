@@ -1,4 +1,4 @@
-var View4 = function (container, model) {	
+Kate.var View4 = function (container, model) {	
 
 	var chosenDish = model.getShowDish();
 
@@ -51,22 +51,5 @@ var View4 = function (container, model) {
 	 	
 	 }
 
-	 this.backToSelectDish.click(function(){
-	 	  document.getElementById("view1").style.display = "none";
-		  document.getElementById("view3").style.display = "block";
-		  document.getElementById("view4").style.display = "none";
-		  document.getElementById("view5").style.display = "none";
-		  document.getElementById("view6").style.display = "none";
-		  showSideBar();
-	 });
-	 this.confirmDish.click(function(){
-		  document.getElementById("view1").style.display = "none";
-		  document.getElementById("view3").style.display = "block";
-		  document.getElementById("view4").style.display = "none";
-		  document.getElementById("view5").style.display = "none";
-		  document.getElementById("view6").style.display = "none";
-		  showSideBar();
-		  model.addDishToMenu(model.getShowDish());
-	 });
 
 }

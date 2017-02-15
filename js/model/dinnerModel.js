@@ -7,7 +7,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 27;
 	var menuDishes = [1,101,200];
 	var observers = [];
-	var showDish = 0;
+	var showDish = 1;
 
 	this.getShowDish = function(){
 		return showDish;

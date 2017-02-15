@@ -9,4 +9,11 @@ $(function() {
 	var view5 = new View5($("#view5"), model);
 	var view6 = new View6($("#view6"), model);
 
+	var view1Controller = new View1Controller(view1, model);
+	var view2Controller = new View2Controller(view2, model);
+	var view3Controller = new View3Controller(view3, model);
+	var view4Controller = new View4Controller(view4, model);
+	var view5Controller = new View5Controller(view5, model);
+	var view6Controller = new View6Controller(view6, model);
+
 });

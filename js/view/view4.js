@@ -1,6 +1,6 @@
 var View4 = function (container, model) {	
 
-	var chosenDish = 100;
+	var chosenDish = model.getShowDish();
 
  	 this.dishPeople = container.find("#dishPeople");
  	 this.dishName = container.find("#dishName");
@@ -35,6 +35,18 @@ var View4 = function (container, model) {
 	 // Ingredients: Amount of people
 	 this.dishPeople.innerHtml = model.getNumberOfGuests();
 
+	 var chosenDish = model.getShowDish();
+	 this.dishName.html(model.getDish(chosenDish).name);
+	 this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
+	 this.dishImage.attr("id",model.getDish(chosenDish).id);
+	 this.dishPreparation.html(model.getDish(chosenDish).description);
+	 	 var ings = model.getDish(chosenDish).ingredients;
+	 var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
+	 for (i in ings){
+	 	dishIngredientsHtml += "<tr><td>" + ings[i].quantity +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
+	 }
+	 dishIngredientsHtml += "</table>";
+	 this.dishIngredients.html(dishIngredientsHtml);
 
 	 	
 	 }
@@ -54,8 +66,7 @@ var View4 = function (container, model) {
 		  document.getElementById("view5").style.display = "none";
 		  document.getElementById("view6").style.display = "none";
 		  showSideBar();
-
-		  model.addDishToMenu(chosenDish);
+		  model.addDishToMenu(model.getShowDish());
 	 });
 
 }

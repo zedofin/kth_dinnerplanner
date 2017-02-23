@@ -45,6 +45,11 @@ var DinnerModel = function() {
 		return numberOfGuests;
 	}
 
+
+
+
+
+
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 2

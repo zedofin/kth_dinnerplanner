@@ -21,14 +21,19 @@ var View4 = function (container, model) {
 
 
 	 // Dish ingredients
-	 var ings = model.getDish(chosenDish).ingredients;
-	 var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
-	 for (i in ings){
-	 	dishIngredientsHtml += "<tr><td>" + ings[i].quantity +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
-	 }
-	 dishIngredientsHtml += "</table>";
-	 this.dishIngredients.html(dishIngredientsHtml);
+	 //var ings = model.getDish(chosenDish).ingredients;
+	 model.getDishIngredients(id, function(ings){
 
+		var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
+		for (i in ings){
+			ings[i].price = "3";
+			dishIngredientsHtml += "<tr><td>" + ings[i].amount +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
+		}
+		dishIngredientsHtml += "</table>";
+		this.dishIngredients.html(dishIngredientsHtml);
+
+	 });
+	 
 	model.addObserver(this);
 	 this.update = function(obj){
 

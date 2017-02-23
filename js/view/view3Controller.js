@@ -12,26 +12,32 @@ var View3Controller = function(view, model, container ) {
 
 	 	//console.log(view.dishType);
 
-	 	results = model.getAllDishes( view.dishType.val() , view.dishKeyword.val() );
+	 	model.getAllDishes( view.dishType.val(), view.dishKeyword.val(), function(results){
+	 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
+	 		var newLineCounter = 1;
+			for (i in results){
+				results[i].description = "Lorem ipsum description right now";
+				searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" src="images/' + results[i].image +'" /></td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
+				if (newLineCounter > 3) {
+					searchResultsHtml += '</tr><tr>';
+					newLineCounter = 0;
+				}
+				newLineCounter++;
+			}
+			searchResultsHtml += '</tr></table>';
+			view.searchResults.html(searchResultsHtml);
+			view.selectViewDish = container.find("img");
 
- 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
-		for (i in results){
-			searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" src="images/' + results[i].image +'" /></td></tr><tr><td>' + results[i].name + '</td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
-		}
-		searchResultsHtml += '</tr></table>';
-		view.searchResults.html(searchResultsHtml);
-		console.log(view.container);
-		view.selectViewDish = container.find("img");
-
-		view.selectViewDish.click(function(e){
-	 	  //model.setShowDish(event.target.number);
-	 	  model.setShowDish(e.target.id);
-		  document.getElementById("view1").style.display = "none";
-		  document.getElementById("view3").style.display = "none";
-		  document.getElementById("view4").style.display = "block";
-		  document.getElementById("view5").style.display = "none";
-		  document.getElementById("view6").style.display = "none";
-		  showSideBar();
-	 	});
+			view.selectViewDish.click(function(e){
+		 	  //model.setShowDish(event.target.number);
+		 	  model.setShowDish(e.target.id);
+			  document.getElementById("view1").style.display = "none";
+			  document.getElementById("view3").style.display = "none";
+			  document.getElementById("view4").style.display = "block";
+			  document.getElementById("view5").style.display = "none";
+			  document.getElementById("view6").style.display = "none";
+			  showSideBar();
+	 		});
+		});
 	 });
 	}

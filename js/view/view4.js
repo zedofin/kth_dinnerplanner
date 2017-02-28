@@ -11,50 +11,52 @@ var View4 = function (container, model) {
 	 this.backToSelectDish = container.find("#backToSelectDish");
 	 this.confirmDish = container.find("#confirmDish");
 
-	 // Dish name, image, preparation
-	 this.dishName.html(model.getDish(chosenDish).name);
-	 this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
-	 this.dishImage.attr("id",model.getDish(chosenDish).id);
-	 this.dishPreparation.html(model.getDish(chosenDish).description);
 
 
 
-
-	 // Dish ingredients
-	 //var ings = model.getDish(chosenDish).ingredients;
-	 model.getDishIngredients(id, function(ings){
-
-		var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
-		for (i in ings){
-			ings[i].price = "3";
-			dishIngredientsHtml += "<tr><td>" + ings[i].amount +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
-		}
-		dishIngredientsHtml += "</table>";
-		this.dishIngredients.html(dishIngredientsHtml);
-
-	 });
 	 
 	model.addObserver(this);
-	 this.update = function(obj){
-
-	 // Ingredients: Amount of people
-	 this.dishPeople.innerHtml = model.getNumberOfGuests();
-
-	 var chosenDish = model.getShowDish();
-	 this.dishName.html(model.getDish(chosenDish).name);
-	 this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
-	 this.dishImage.attr("id",model.getDish(chosenDish).id);
-	 this.dishPreparation.html(model.getDish(chosenDish).description);
-	 	 var ings = model.getDish(chosenDish).ingredients;
-	 var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
-	 for (i in ings){
-	 	dishIngredientsHtml += "<tr><td>" + ings[i].quantity +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
-	 }
-	 dishIngredientsHtml += "</table>";
-	 this.dishIngredients.html(dishIngredientsHtml);
-
-	 	
-	 }
+	this.update = function(obj){
 
 
+		model.getDish(model.getShowDish(), function(data){
+
+			console.log("updating view4!");
+		 	var chosenDish = model.getShowDish();
+
+			// Ingredients: Amount of people
+			this.dishPeople.innerHtml = model.getNumberOfGuests();
+
+		 // Dish name, image, preparation
+			var chosenDish = model.getShowDish();
+			this.dishName.html(model.getDish(chosenDish).name);
+			this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
+			this.dishImage.attr("id",model.getDish(chosenDish).id);
+			this.dishPreparation.html(model.getDish(chosenDish).description);
+			var ings = model.getDish(chosenDish).ingredients;
+			var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
+			for (i in ings){
+				dishIngredientsHtml += "<tr><td>" + ings[i].quantity +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
+			}
+			dishIngredientsHtml += "</table>";
+			this.dishIngredients.html(dishIngredientsHtml);
+
+
+
+
+			 // Dish ingredients
+			 //var ings = model.getDish(chosenDish).ingredients;
+			model.getDishIngredients(id, function(ings){
+
+				var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
+				for (i in ings){
+					ings[i].price = "3";
+					dishIngredientsHtml += "<tr><td>" + ings[i].amount +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
+				}
+				dishIngredientsHtml += "</table>";
+				this.dishIngredients.html(dishIngredientsHtml);
+
+			});
+		});
+	}
 }

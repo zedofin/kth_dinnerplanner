@@ -33,14 +33,14 @@ function showSideBar(){
 // The functions
 
 
-
+/*
 function confirmDinner() {
 
 }
 
-/*function searchDishes() {
+function searchDishes() {
   confirmDinner();
-}*/
+}
 
 function backToSelectDish() {
   document.getElementById("view1").style.display = "none";
@@ -101,5 +101,5 @@ function selectThisDish() {
   document.getElementById("view6").style.display = "none";
   showSideBar();
 }
-
+*/
 

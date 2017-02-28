@@ -12,11 +12,14 @@ var DinnerModel = function() {
     var observers = [];
     var showDish = 1;
     var dishes = [];
+
     this.getShowDish = function(){
+        console.log("returning from getShowDish with id " + showDish);
         return showDish;
     }
 
     this.setShowDish = function(id){
+        console.log("inside setShowDish with id: " + id);
         showDish = id;
         notifyObservers();
     }
@@ -30,9 +33,9 @@ var DinnerModel = function() {
     }
 
     var notifyObservers = function(obj) {
-        for (observer in observers){
-            observers[observer].update();
-            //console.log(observers[observer]);
+        for (ob1 in observers){
+            observers[ob1].update();
+            console.log(observers[ob1]);
         }
     } 
 
@@ -165,11 +168,19 @@ var DinnerModel = function() {
     }
 
     //function that returns a dish of specific ID
-    this.getDish = function (id) {
-      for(key in dishes){
-            if(dishes[key].id == id) {
-                return dishes[key];
-            }
-        }
+    this.getDish = function (id, cb) {
+         $.ajax( {
+           url:  'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+id+'/information',
+           headers: {
+             'X-Mashape-Key': SpoonacularApiKey
+           },
+           success: function(data) {
+             console.log(data);
+             cb(data);
+           },
+           error: function(data) {
+             console.log(data)
+           }
+         })
     }
 }

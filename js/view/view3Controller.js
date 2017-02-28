@@ -26,11 +26,12 @@ var View3Controller = function(view, model, container ) {
 			}
 			searchResultsHtml += '</tr></table>';
 			view.searchResults.html(searchResultsHtml);
-			view.selectViewDish = container.find("img");
+			view.selectViewDish = container.find("imgsd");
 
-			view.selectViewDish.click(function(e){
+			$('img').click(function(){
+			  console.log("going to setShowDish with id: " + this.id);
 		 	  //model.setShowDish(event.target.number);
-		 	  model.setShowDish(e.target.id);
+		 	  model.setShowDish(this.id);
 			  document.getElementById("view1").style.display = "none";
 			  document.getElementById("view3").style.display = "none";
 			  document.getElementById("view4").style.display = "block";

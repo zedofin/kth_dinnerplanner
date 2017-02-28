@@ -29,21 +29,21 @@ var View4 = function (container, model) {
 
 		 // Dish name, image, preparation
 			var chosenDish = model.getShowDish();
-			this.dishName.html(model.getDish(chosenDish).name);
-			this.dishImage.attr("src","images/"+model.getDish(chosenDish).image);
-			this.dishImage.attr("id",model.getDish(chosenDish).id);
-			this.dishPreparation.html(model.getDish(chosenDish).description);
-			var ings = model.getDish(chosenDish).ingredients;
+			container.find("#dishName").html(data.title);
+			container.find("#dishImage").attr("src",data.image);
+			container.find("#dishImage").attr("id",data.id);
+			container.find("#dishPreparation").html(data.description);
+			var ings = data.extendedIngredients;
 			var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
 			for (i in ings){
-				dishIngredientsHtml += "<tr><td>" + ings[i].quantity +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].price +"</td></tr>";
+				dishIngredientsHtml += "<tr><td>" + ings[i].amount +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].amount +"</td></tr>";
 			}
 			dishIngredientsHtml += "</table>";
-			this.dishIngredients.html(dishIngredientsHtml);
+			container.find("#dishIngredients").html(dishIngredientsHtml);
 
 
 
-
+			/*
 			 // Dish ingredients
 			 //var ings = model.getDish(chosenDish).ingredients;
 			model.getDishIngredients(id, function(ings){
@@ -55,8 +55,9 @@ var View4 = function (container, model) {
 				}
 				dishIngredientsHtml += "</table>";
 				this.dishIngredients.html(dishIngredientsHtml);
-
 			});
+
+			*/
 		});
 	}
 }

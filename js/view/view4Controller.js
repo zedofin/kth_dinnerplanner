@@ -16,6 +16,7 @@ var View4Controller = function (view, model) {
 		  document.getElementById("view6").style.display = "none";
 		  showSideBar();
 		  model.addDishToMenu(model.getShowDish());
+
 	 });
 
 }

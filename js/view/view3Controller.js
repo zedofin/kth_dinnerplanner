@@ -28,16 +28,14 @@ var View3Controller = function(view, model, container ) {
 			view.searchResults.html(searchResultsHtml);
 			view.selectViewDish = container.find("imgsd");
 
-			$('img').click(function(){
-			  console.log("going to setShowDish with id: " + this.id);
-		 	  //model.setShowDish(event.target.number);
-		 	  model.setShowDish(this.id);
-			  document.getElementById("view1").style.display = "none";
-			  document.getElementById("view3").style.display = "none";
-			  document.getElementById("view4").style.display = "block";
-			  document.getElementById("view5").style.display = "none";
-			  document.getElementById("view6").style.display = "none";
-			  showSideBar();
+			$('img').click(function(e){
+		 		model.setShowDish(e.target.id, container.find("#dishType").val());
+			  	document.getElementById("view1").style.display = "none";
+			  	document.getElementById("view3").style.display = "none";
+			  	document.getElementById("view4").style.display = "block";
+			  	document.getElementById("view5").style.display = "none";
+			  	document.getElementById("view6").style.display = "none";
+			  	showSideBar();
 	 		});
 		});
 	 });

@@ -18,25 +18,38 @@ var View2 = function (container, model) {
 	this.update = function(obj){
 		 // Dish names
 
+		 /*
 		this.starter.html("");
 		this.starterPrice.html("");
 		this.mainDish.html("");
 		this.mainDishPrice.html("");
 		this.dessert.html("");
 		this.dessertPrice.html("");
+		*/
 
-
-		if (model.getSelectedDish("starter")) {
-			this.starter.html("<b>×</b> "+model.getDish(model.getSelectedDish("starter")).name);
-			this.starterPrice.html(model.getDishPrice("starter"));
+		if (model.issetCourse("starter")) {
+			model.getDish(model.getCourse("starter"), function(data){
+				container.find("#starter").html("<b>×</b> "+ data.title);
+				model.getDishPrice("starter", function(data){
+					container.find("#starterPrice").html(data);
+				});
+			});
 		}
-		if (model.getSelectedDish("main dish")) {
-			this.mainDish.html("<b>×</b> "+model.getDish(model.getSelectedDish("main dish")).name);
-			this.mainDishPrice.html(model.getDishPrice("main dish"));
+		if (model.issetCourse("mainDish")) {
+			model.getDish(model.getCourse("mainDish"), function(data){
+				container.find("#mainDish").html("<b>×</b> "+ data.title);
+				model.getDishPrice("mainDish", function(data){
+					container.find("#mainDishPrice").html(data);
+				});
+			});
 		}
-		if (model.getSelectedDish("dessert")) {
-			this.dessert.html("<b>×</b> "+model.getDish(model.getSelectedDish("dessert")).name);
-			this.dessertPrice.html(model.getDishPrice("dessert"));
+		if (model.issetCourse("dessert")) {
+			model.getDish(model.getCourse("dessert"), function(data){
+				container.find("#dessert").html("<b>×</b> "+ data.title);
+				model.getDishPrice("dessert", function(data){
+					container.find("#dessertPrice").html(data);
+				});
+			});
 		}
 
 		 // Dish costs

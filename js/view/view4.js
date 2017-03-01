@@ -2,14 +2,14 @@ var View4 = function (container, model) {
 
 	var chosenDish = model.getShowDish();
 
- 	 this.dishPeople = container.find("#dishPeople");
- 	 this.dishName = container.find("#dishName");
-	 this.dishImage = container.find("#dishImage");
-	 this.dishPreparation = container.find("#dishPreparation");
-	 this.dishIngredients = container.find("#dishIngredients");
-	 this.confirmDish = container.find("#confirmDish");
-	 this.backToSelectDish = container.find("#backToSelectDish");
-	 this.confirmDish = container.find("#confirmDish");
+	this.dishType = container.find("#dishType");
+ 	this.dishPeople = container.find("#dishPeople");
+ 	this.dishName = container.find("#dishName");
+	this.dishImage = container.find("#dishImage");
+	this.dishPreparation = container.find("#dishPreparation");
+	this.dishIngredients = container.find("#dishIngredients");
+	this.confirmDish = container.find("#confirmDish");
+	this.backToSelectDish = container.find("#backToSelectDish");
 
 
 
@@ -18,21 +18,18 @@ var View4 = function (container, model) {
 	model.addObserver(this);
 	this.update = function(obj){
 
-
-		model.getDish(model.getShowDish(), function(data){
-
-			console.log("updating view4!");
-		 	var chosenDish = model.getShowDish();
+		model.getDish(model.getShowDish()[0], function(data){
 
 			// Ingredients: Amount of people
 			this.dishPeople.innerHtml = model.getNumberOfGuests();
 
-		 // Dish name, image, preparation
-			var chosenDish = model.getShowDish();
+		 	// Dish name, image, preparation
+			var chosenDish = model.getShowDish()[0];
 			container.find("#dishName").html(data.title);
 			container.find("#dishImage").attr("src",data.image);
 			container.find("#dishImage").attr("id",data.id);
 			container.find("#dishPreparation").html(data.description);
+			container.find("#dishImage").attr("src",data.image);
 			var ings = data.extendedIngredients;
 			var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
 			for (i in ings){

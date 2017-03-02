@@ -186,16 +186,12 @@ var DinnerModel = function() {
     // if you don't pass any filter all the dishes will be returned
     this.getAllDishes = function (type,filter,cb) {
         if (type == "mainDish") type = "main dish";
-        console.log("Type: "+type +", Filter: "+filter);
-
         $.ajax( {
             url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter+'',
             headers: {
     	       'X-Mashape-Key': SpoonacularApiKey
             },
             success: function(data) {
-                console.log("model sends data:");
-                console.log(data.results);
                 cb(data.results);
             },
             error: function(data) {

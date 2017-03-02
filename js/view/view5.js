@@ -27,20 +27,20 @@ var View5 = function (container, model) {
 
 		this.starter5.html("You have no starter");
 		this.starterPrice5.html("");
-		this.starterImage.attr("src","/../../images/loading.gif");
+		this.starterImage.attr("src","images/loading.gif");
 
 		this.main5.html("You have no main dish");
 		this.mainPrice5.html("");
-		this.mainImage.attr("src","/../../images/loading.gif");
+		this.mainImage.attr("src","images/loading.gif");
 
 		this.dessert5.html("You have no dessert");
 		this.dessertPrice5.html("");
-		this.dessertImage.attr("src","/../../images/loading.gif");
+		this.dessertImage.attr("src","images/loading.gif");
 
 	 	// update the number of people
 	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
 		var sum = 0;
-	 	if(model.getCourse("starter") > 0) {
+	 	if(model.isseCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 	 			container.find("#starter5").html(data.title);
 				model.getDishPrice("starter", function(data){
@@ -51,7 +51,7 @@ var View5 = function (container, model) {
 	 		});
 	 	}
 
-	 	if(model.getCourse("mainDish") > 0) {
+	 	if(model.issetCourse("mainDish")) {
 	 		model.getDish(model.getCourse("mainDish"), function(data){
 	 			container.find("#main5").html(data.title);
 				model.getDishPrice("mainDish", function(data){
@@ -62,7 +62,7 @@ var View5 = function (container, model) {
 	 		});
 	 	}
 
-	 	if(model.getCourse("dessert") > 0) {
+	 	if(model.issetCourse("dessert")) {
 	 		model.getDish(model.getCourse("dessert"), function(data){
 	 			container.find("#dessert5").html(data.title);
 				model.getDishPrice("dessert", function(data){

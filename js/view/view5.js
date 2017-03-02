@@ -40,7 +40,7 @@ var View5 = function (container, model) {
 	 	// update the number of people
 	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
 		var sum = 0;
-	 	if(model.isseCourse("starter")) {
+	 	if(model.issetCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 	 			container.find("#starter5").html(data.title);
 				model.getDishPrice("starter", function(data){

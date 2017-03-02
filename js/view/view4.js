@@ -22,6 +22,7 @@ var View4 = function (container, model) {
 		this.dishPreparation.html("");
 		this.dishIngredients.html("");
 		this.dishImage.attr("src","images/loading.gif");
+		//container.find("#dishPeople").html(model.getNumberOfGuests());
 
 
 		model.getDish(model.getShowDish()[0], function(data){

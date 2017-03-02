@@ -32,13 +32,14 @@ var View4 = function (container, model) {
 		 	// Dish name, image, preparation
 			var chosenDish = model.getShowDish()[0];
 			container.find("#dishName").html(data.title);
+			container.find("#dishPeople").html(data.servings);
 			container.find("#dishPreparation").html(data.description);
 			container.find("[class=dishImage]").attr("id",data.id);
 			container.find("[class=dishImage]").attr("src",data.image);
 			var ings = data.extendedIngredients;
 			var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
 			for (i in ings){
-				dishIngredientsHtml += "<tr><td>" + ings[i].amount +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].amount +"</td></tr>";
+				dishIngredientsHtml += "<tr><td>" + ings[i].amount / data.servings  +" "+ ings[i].unit +"</td><td>"+ ings[i].name + "</td><td> SEK </td><td> " + ings[i].amount / data.servings +"</td></tr>";
 			}
 			dishIngredientsHtml += "</table>";
 			container.find("#dishIngredients").html(dishIngredientsHtml);

@@ -192,6 +192,7 @@ var DinnerModel = function() {
     	       'X-Mashape-Key': SpoonacularApiKey
             },
             success: function(data) {
+                console.log("New API-query done");
                 cb(data.results);
             },
             error: function(data) {
@@ -205,7 +206,7 @@ var DinnerModel = function() {
         // Let's check if dish is already downloaded
         for (i in localDishes){
             if (id == localDishes[i].id){
-                console.log("LOCAL in getDish");
+                console.log(localDishes[i]);
                 cb(localDishes[i]);
                 return true;
             }
@@ -219,6 +220,8 @@ var DinnerModel = function() {
            },
            success: function(data) {
             localDishes.push(data);
+            console.log("New API-query done");
+            console.log(localDishes[localDishes.length-1]);
             cb(localDishes[localDishes.length-1]);
            },
            error: function(data) {

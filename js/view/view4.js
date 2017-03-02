@@ -18,6 +18,12 @@ var View4 = function (container, model) {
 	model.addObserver(this);
 	this.update = function(obj){
 
+		this.dishName.html("");
+		this.dishPreparation.html("");
+		this.dishIngredients.html("");
+		this.dishImage.attr("src","/../../images/loading.gif");
+
+
 		model.getDish(model.getShowDish()[0], function(data){
 
 			// Ingredients: Amount of people

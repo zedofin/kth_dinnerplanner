@@ -173,6 +173,10 @@ hr{
 	display: none;
 }
 
+.dishImage {
+    width:400;
+}
+
 #view5 {
 	display: none;
 }

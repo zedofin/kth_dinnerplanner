@@ -29,27 +29,33 @@ var View5 = function (container, model) {
 	 	if(model.getCourse("starter") > 0) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 	 			container.find("#starter5").html(data.title);
-	 			container.find("#starterPrice5").html(data.pricePerServing);
+				model.getDishPrice("starter", function(data){
+					container.find("#starterPrice5").html(data);
+					sum = sum + data;
+				});
 	 			container.find("#starterImage").attr("src",data.image);
-	 			sum = sum + data.pricePerServing;
 	 		});
 	 	}
 
 	 	if(model.getCourse("mainDish") > 0) {
 	 		model.getDish(model.getCourse("mainDish"), function(data){
 	 			container.find("#main5").html(data.title);
-	 			container.find("#mainPrice5").html(data.pricePerServing);
+				model.getDishPrice("mainDish", function(data){
+					container.find("#mainPrice5").html(data);
+					sum = sum + data;
+				});
 	 			container.find("#mainImage").attr("src",data.image);
-	 			sum = sum + data.pricePerServing;
 	 		});
 	 	}
 
 	 	if(model.getCourse("dessert") > 0) {
 	 		model.getDish(model.getCourse("dessert"), function(data){
 	 			container.find("#dessert5").html(data.title);
-	 			container.find("#dessertPrice5").html(data.pricePerServing);
+				model.getDishPrice("dessert", function(data){
+					container.find("#dessertPrice5").html(data);
+					sum = sum + data;
+				});
 	 			container.find("#dessertImage").attr("src",data.image);
-	 			sum = sum + data.pricePerServing;
 	 		});
 	 	}
 

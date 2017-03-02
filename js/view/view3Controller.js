@@ -35,6 +35,8 @@ var View3Controller = function(view, model, container ) {
 			  	document.getElementById("view6").style.display = "none";
 			  	showSideBar();
 	 		});
-		});
+		}, function(results) {console.log(results); view.searchResults.html("There was an error in getting data, please try again! Message from model: " + results.statusText);}
+
+);
 	 });
 	}

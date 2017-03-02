@@ -16,7 +16,65 @@ var View6 = function (container, model) {
 		 //number of people
 		 this.myDinnerXPeople.html("My Dinner: " + model.getNumberOfGuests() + " people");
 
+		var fullRecipeHtml = "";
 
+		if(model.getCourse("starter") > 0) {
+	 		model.getDish(model.getCourse("starter"), function(data){
+				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
+				//console.log(data);
+				for (ing in data.extendedIngredients) {
+					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
+					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
+					
+				}
+				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
+				for (step in data.analyzedInstructions[0].steps) {
+					//console.log(data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step);
+					fullRecipeHtml += "<p>" + data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step + "</p>";
+				}
+				fullRecipeHtml += "</td>"
+	 		});
+	 	}
+
+		if(model.getCourse("mainDish") > 0) {
+	 		model.getDish(model.getCourse("mainDish"), function(data){
+				fullRecipeHtml += "<td class='verticalAlignUp'  height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
+				//console.log(data);
+				for (ing in data.extendedIngredients) {
+					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
+					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
+					
+				}
+				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
+				for (step in data.analyzedInstructions[0].steps) {
+					//console.log(data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step);
+					fullRecipeHtml += "<p>" + data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step + "</p>";
+				}
+				fullRecipeHtml += "</td>"
+	 		});
+	 	}
+
+		if(model.getCourse("dessert") > 0) {
+	 		model.getDish(model.getCourse("dessert"), function(data){
+				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
+				//console.log(data);
+				for (ing in data.extendedIngredients) {
+					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
+					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
+					
+				}
+				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
+				for (step in data.analyzedInstructions[0].steps) {
+					//console.log(data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step);
+					fullRecipeHtml += "<p>" + data.analyzedInstructions[0].steps[step].number + ". " + data.analyzedInstructions[0].steps[step].step + "</p>";
+				}
+				fullRecipeHtml += "</td>"
+	 		});
+	 	}
+		fullRecipeHtml += "<>";
+		this.fullRecipe.html(fullRecipeHtml);
+
+/*		
 		 var menu = model.getFullMenu();
 		 var fullRecipeHtml = "<table>";
 		 for (i in menu){
@@ -24,6 +82,7 @@ var View6 = function (container, model) {
 		 }
 		 fullRecipeHtml += "</table>";
 		 this.fullRecipe.html(fullRecipeHtml);
+*/
 	 }
 
 }

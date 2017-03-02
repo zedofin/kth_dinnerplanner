@@ -143,9 +143,7 @@ var DinnerModel = function() {
             var ings = data.extendedIngredients;
             var sum = 0;
             for (i in ings) sum += ings[i].amount;
-            console.log("Before");
             cb(sum);
-            console.log("After");
         });
     }
 

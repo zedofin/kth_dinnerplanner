@@ -20,14 +20,45 @@ var View5 = function (container, model) {
 	// View 5
 
 
-	this.totalPrice.html(model.getTotalMenuPrice() + " SEK");
 
 	model.addObserver(this);
 	 this.update = function(obj){
-
 	 	// update the number of people
 	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
+		var sum = 0;
+	 	if(model.getCourse("starter") > 0) {
+	 		model.getDish(model.getCourse("starter"), function(data){
+	 			container.find("#starter5").html(data.title);
+	 			container.find("#starterPrice5").html(data.pricePerServing);
+	 			container.find("#starterImage").attr("src",data.image);
+	 			sum = sum + data.pricePerServing;
+	 		});
+	 	}
 
+	 	if(model.getCourse("mainDish") > 0) {
+	 		model.getDish(model.getCourse("mainDish"), function(data){
+	 			container.find("#main5").html(data.title);
+	 			container.find("#mainPrice5").html(data.pricePerServing);
+	 			container.find("#mainImage").attr("src",data.image);
+	 			sum = sum + data.pricePerServing;
+	 		});
+	 	}
+
+	 	if(model.getCourse("dessert") > 0) {
+	 		model.getDish(model.getCourse("dessert"), function(data){
+	 			container.find("#dessert5").html(data.title);
+	 			container.find("#dessertPrice5").html(data.pricePerServing);
+	 			container.find("#dessertImage").attr("src",data.image);
+	 			sum = sum + data.pricePerServing;
+	 		});
+	 	}
+
+	 	this.totalPrice.html(sum + " SEK");
+
+
+
+
+	 	/*
 		if (model.starter) {
 			getDish(model.starter, function(data){
 				container.find("#starter5").html(data.title);
@@ -51,6 +82,9 @@ var View5 = function (container, model) {
 				container.find("#dessertImage").attr("src",model.getDish(model.getSelectedDish("dessert")).image);
 			});
 		}
+		*/
+
+
 
 	 }
 

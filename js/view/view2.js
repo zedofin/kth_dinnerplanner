@@ -26,12 +26,13 @@ var View2 = function (container, model) {
 		this.dessert.html("");
 		this.dessertPrice.html("");
 		*/
-
+		var sum = 0;
 		if (model.issetCourse("starter")) {
 			model.getDish(model.getCourse("starter"), function(data){
 				container.find("#starter").html("<b>×</b> "+ data.title);
 				model.getDishPrice("starter", function(data){
 					container.find("#starterPrice").html(data);
+					sum = sum + data;
 				});
 			});
 		}
@@ -40,6 +41,7 @@ var View2 = function (container, model) {
 				container.find("#mainDish").html("<b>×</b> "+ data.title);
 				model.getDishPrice("mainDish", function(data){
 					container.find("#mainDishPrice").html(data);
+					sum = sum + data;
 				});
 			});
 		}
@@ -48,12 +50,13 @@ var View2 = function (container, model) {
 				container.find("#dessert").html("<b>×</b> "+ data.title);
 				model.getDishPrice("dessert", function(data){
 					container.find("#dessertPrice").html(data);
+					sum = sum + data;
 				});
 			});
 		}
 
 		 // Dish costs
-		this.dinnerPrice.html(model.getTotalMenuPrice() * model.getNumberOfGuests());
+		this.dinnerPrice.html(sum * model.getNumberOfGuests());
 
 	};
 	 // using input[type=number] in this case

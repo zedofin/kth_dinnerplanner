@@ -69,7 +69,7 @@ var View6 = function (container, model) {
 	 		});
 	 	}
 		//fullRecipeHtml += "";
-		if (fullRecipeHtml == "") fullRecipeHtml = "Nothing to see here";
+		if (fullRecipeHtml == "") fullRecipeHtml = "Nothing to see here.";
 		this.fullRecipe.html(fullRecipeHtml);
 
 /*		

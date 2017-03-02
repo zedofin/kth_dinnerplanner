@@ -10,7 +10,7 @@ var View3Controller = function(view, model, container ) {
 	 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
 	 		var newLineCounter = 1;
 			for (i in results){
-				results[i].description = "Lorem ipsum description right now";
+				results[i].description = "Lorem ipsum description right now in view3Controller.js: line 13(?)";
 				//NORMAL IMAGES
 				//searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" class="dishImage" src="https://spoonacular.com/recipeImages/' + results[i].image +'" /></td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
 				

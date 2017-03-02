@@ -18,14 +18,13 @@ var View6 = function (container, model) {
 
 		var fullRecipeHtml = "";
 
-		if(model.getCourse("starter") > 0) {
+		if(model.issetCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {
 					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
 					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
-					
 				}
 				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
 				for (step in data.analyzedInstructions[0].steps) {
@@ -36,14 +35,13 @@ var View6 = function (container, model) {
 	 		});
 	 	}
 
-		if(model.getCourse("mainDish") > 0) {
+		if(model.issetCourse("mainDish")) {
 	 		model.getDish(model.getCourse("mainDish"), function(data){
 				fullRecipeHtml += "<td class='verticalAlignUp'  height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {
 					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
 					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
-					
 				}
 				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
 				for (step in data.analyzedInstructions[0].steps) {
@@ -54,14 +52,13 @@ var View6 = function (container, model) {
 	 		});
 	 	}
 
-		if(model.getCourse("dessert") > 0) {
+		if(model.issetCourse("dessert")) {
 	 		model.getDish(model.getCourse("dessert"), function(data){
 				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {
 					//console.log(data.extendedIngredients[ing].amount + data.extendedIngredients[ing].unit + data.extendedIngredients[ing].name);
 					fullRecipeHtml += "<p>" + data.extendedIngredients[ing].amount + " " + data.extendedIngredients[ing].unit + " " +data.extendedIngredients[ing].name + "</p>";
-					
 				}
 				fullRecipeHtml += "<h3>" + "Instructions: " + "</h3>"
 				for (step in data.analyzedInstructions[0].steps) {
@@ -71,7 +68,8 @@ var View6 = function (container, model) {
 				fullRecipeHtml += "</td>"
 	 		});
 	 	}
-		fullRecipeHtml += "<>";
+		//fullRecipeHtml += "";
+		if (fullRecipeHtml == "") fullRecipeHtml = "Nothing to see here";
 		this.fullRecipe.html(fullRecipeHtml);
 
 /*		

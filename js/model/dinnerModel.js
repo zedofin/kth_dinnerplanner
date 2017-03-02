@@ -140,10 +140,16 @@ var DinnerModel = function() {
     // Summs prices of ingredients of given dish
     this.getDishPrice = function(type, cb) {
         this.getDish(this.getCourse(type), function(data){
-            var ings = data.extendedIngredients;
+            
+
+            cb(data.pricePerServing);
+
+            /*
             var sum = 0;
+            var ings = data.extendedIngredients;
             for (i in ings) sum += ings[i].amount;
-            cb(sum);
+            cb(sum / data.servings);
+            */
         });
     }
 

@@ -39,7 +39,6 @@ var View2 = function (container, model) {
 				container.find("#mainDish").html("<b>×</b></td><td> "+ data.title);
 				container.find("#mainDishPrice").html(data.pricePerServing * model.getNumberOfGuests());
 				sum += data.pricePerServing * model.getNumberOfGuests();
-
 			});
 		}
 		if (model.issetCourse("dessert")) {

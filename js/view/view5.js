@@ -27,11 +27,11 @@ var View5 = function (container, model) {
 
 		this.starter5.html("You have no starter");
 		this.starterPrice5.html("");
-		this.starterImage.attr("src","images/loading.gif");
+		this.starterImage.attr("src","/images/loading.gif");
 
 		this.main5.html("You have no main dish");
 		this.mainPrice5.html("");
-		this.mainImage.attr("src","images/loading.gif");
+		this.mainImage.attr("src","/images/loading.gif");
 
 		this.dessert5.html("You have no dessert");
 		this.dessertPrice5.html("");
@@ -43,9 +43,9 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 	 			container.find("#starter5").html(data.title);
-				model.getDishPrice("starter", function(data){
-					container.find("#starterPrice5").html(data);
-					sum = sum + data;
+				model.getDishPrice("starter", function(pricePerPerson){
+					container.find("#starterPrice5").html(pricePerPerson * model.getNumberOfGuests());
+					sum += pricePerPerson * model.getNumberOfGuests();
 				});
 	 			container.find("#starterImage").attr("src",data.image);
 	 		});
@@ -54,9 +54,9 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("mainDish")) {
 	 		model.getDish(model.getCourse("mainDish"), function(data){
 	 			container.find("#main5").html(data.title);
-				model.getDishPrice("mainDish", function(data){
-					container.find("#mainPrice5").html(data);
-					sum = sum + data;
+				model.getDishPrice("mainDish", function(pricePerPerson){
+					container.find("#mainPrice5").html(pricePerPerson * model.getNumberOfGuests());
+					sum += pricePerPerson * model.getNumberOfGuests();
 				});
 	 			container.find("#mainImage").attr("src",data.image);
 	 		});
@@ -65,9 +65,9 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("dessert")) {
 	 		model.getDish(model.getCourse("dessert"), function(data){
 	 			container.find("#dessert5").html(data.title);
-				model.getDishPrice("dessert", function(data){
-					container.find("#dessertPrice5").html(data);
-					sum = sum + data;
+				model.getDishPrice("dessert", function(pricePerPerson){
+					container.find("#dessertPrice5").html(pricePerPerson * model.getNumberOfGuests());
+					sum += pricePerPerson * model.getNumberOfGuests();
 				});
 	 			container.find("#dessertImage").attr("src",data.image);
 	 		});

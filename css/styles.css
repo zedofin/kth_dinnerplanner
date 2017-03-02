@@ -195,3 +195,7 @@ hr{
 	display: none;
 }
 
+#starterImage, #mainDishImage, #dessertImage {
+    width:300px;
+}
+

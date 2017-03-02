@@ -29,7 +29,6 @@ var View4 = function (container, model) {
 			container.find("#dishPreparation").html(data.description);
 			container.find("[class=dishImage]").attr("id",data.id);
 			container.find("[class=dishImage]").attr("src",data.image);
-			container.find("[class=dishImage]").attr("width","400px");
 			var ings = data.extendedIngredients;
 			var dishIngredientsHtml = "<table id=\"ingredientsTable\">";
 			for (i in ings){

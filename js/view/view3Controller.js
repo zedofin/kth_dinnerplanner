@@ -1,24 +1,17 @@
 var View3Controller = function(view, model, container ) {
 
 	 view.searchDishes.click(function(){
-	 	//view.searchResults = container.find("#searchResults");
-	 	//view.dishType = document.getElementById("dishType");
-	 	//view.dishKeyword = container.find("#dishKeyword");
-	 	//console.log(view.dishType.options.selectedIndex);
-	 	//console.log(view.dishType.options[view.dishType.options.selectedIndex]);
-	 	
-	 	//if (view.dishKeyword.val() == "") {results = model.getAllDishes(view.dishType.options[view.dishType.options.selectedIndex].value);}
-	 	//else {results = model.getAllDishes(view.dishType.options[view.dishType.options.selectedIndex].value,view.dishKeyword.val());}
+	 	model.getAllDishes( container.find("#dishType").val(), container.find("#dishKeyword").val(), function(results){
 
-	 	//console.log(view.dishType);
+	 		console.log("view3 got data from model:");
+	 		console.log(results);
 
-	 	model.getAllDishes( view.dishType.val(), view.dishKeyword.val(), function(results){
 	 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
 	 		var newLineCounter = 1;
 			for (i in results){
 				results[i].description = "Lorem ipsum description right now";
-				searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" src="images/' + results[i].image +'" /></td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
-				if (newLineCounter > 3) {
+				searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" class="dishImage" src="https://spoonacular.com/recipeImages/' + results[i].image +'" /></td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
+				if (newLineCounter > 1) {
 					searchResultsHtml += '</tr><tr>';
 					newLineCounter = 0;
 				}
@@ -28,7 +21,7 @@ var View3Controller = function(view, model, container ) {
 			view.searchResults.html(searchResultsHtml);
 			view.selectViewDish = container.find("imgsd");
 
-			$('img').click(function(e){
+			$("[class=dishImage]").click(function(e){
 		 		model.setShowDish(e.target.id, container.find("#dishType").val());
 			  	document.getElementById("view1").style.display = "none";
 			  	document.getElementById("view3").style.display = "none";

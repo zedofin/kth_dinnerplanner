@@ -6,6 +6,10 @@ body {
     text-align: left;
 }
 
+.verticalAlignUp{
+    vertical-align: top;
+}
+
 #menu-toggle{
     position: absolute;
     top:0;
@@ -149,6 +153,16 @@ hr{
     padding: 20px;
 }
 
+
+#view3 .dishImage {
+    max-height:300px;
+}
+
+#view4 .dishImage {
+    max-width:400px;
+    max-height:400px;
+}
+
 #view1 {
     display: block;
     /*background-color: #feffe7;
@@ -171,10 +185,6 @@ hr{
 
 #view4 {
 	display: none;
-}
-
-.dishImage {
-    width:400;
 }
 
 #view5 {

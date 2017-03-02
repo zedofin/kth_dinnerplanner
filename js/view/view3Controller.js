@@ -1,9 +1,10 @@
 var View3Controller = function(view, model, container ) {
 
 	 view.searchDishes.click(function(){
+		view.searchResults.html("<img src='images/loading.gif' /img>");
 	 	model.getAllDishes( container.find("#dishType").val(), container.find("#dishKeyword").val(), function(results){
 
-
+			
 			view.searchResults.html("");
 			view.searchResults.html("");
 
@@ -22,11 +23,13 @@ var View3Controller = function(view, model, container ) {
 				}
 				newLineCounter++;
 			}
+			if (results == "") searchResultsHtml += "There are no results for: '"+ container.find("#dishKeyword").val() +"', make sure you spelled it correctly!";
 			searchResultsHtml += '</tr></table>';
 			view.searchResults.html(searchResultsHtml);
 			view.selectViewDish = container.find("imgsd");
 
 			$("div[class=placeholder]").click(function(e){
+
 		 		model.setShowDish(e.target.id, container.find("#dishType").val());
 			  	document.getElementById("view1").style.display = "none";
 			  	document.getElementById("view3").style.display = "none";

@@ -184,19 +184,22 @@ var DinnerModel = function() {
     // function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
     // you can use the filter argument to filter out the dish by name or ingredient (use for search)
     // if you don't pass any filter all the dishes will be returned
-    this.getAllDishes = function (type,filter,cb) {
+    this.getAllDishes = function (type,filter,cb, cbError) {
         if (type == "mainDish") type = "main dish";
+        console.log("Type: "+type +", Filter: "+filter);
+
         $.ajax( {
             url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type='+type+'&query='+filter+'',
             headers: {
     	       'X-Mashape-Key': SpoonacularApiKey
             },
             success: function(data) {
-                console.log("New API-query done");
+                console.log("model sends data:");
+                console.log(data.results);
                 cb(data.results);
             },
             error: function(data) {
-                console.log(data)
+		cbError(data);
             }
         }) 
     }
@@ -206,7 +209,7 @@ var DinnerModel = function() {
         // Let's check if dish is already downloaded
         for (i in localDishes){
             if (id == localDishes[i].id){
-                console.log(localDishes[i]);
+                console.log("LOCAL in getDish");
                 cb(localDishes[i]);
                 return true;
             }
@@ -220,8 +223,6 @@ var DinnerModel = function() {
            },
            success: function(data) {
             localDishes.push(data);
-            console.log("New API-query done");
-            console.log(localDishes[localDishes.length-1]);
             cb(localDishes[localDishes.length-1]);
            },
            error: function(data) {

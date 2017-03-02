@@ -43,10 +43,8 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
 	 			container.find("#starter5").html(data.title);
-				model.getDishPrice("starter", function(data){
-					container.find("#starterPrice5").html(data);
-					sum = sum + data;
-				});
+				container.find("#starterPrice5").html(data.pricePerServing);
+				sum += data.pricePerServing * model.getNumberOfGuests();
 	 			container.find("#starterImage").attr("src",data.image);
 	 		});
 	 	}
@@ -54,10 +52,8 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("mainDish")) {
 	 		model.getDish(model.getCourse("mainDish"), function(data){
 	 			container.find("#main5").html(data.title);
-				model.getDishPrice("mainDish", function(data){
-					container.find("#mainPrice5").html(data);
-					sum = sum + data;
-				});
+				container.find("#mainPrice5").html(data.pricePerServing);
+				sum += data.pricePerServing * model.getNumberOfGuests();
 	 			container.find("#mainImage").attr("src",data.image);
 	 		});
 	 	}
@@ -65,10 +61,8 @@ var View5 = function (container, model) {
 	 	if(model.issetCourse("dessert")) {
 	 		model.getDish(model.getCourse("dessert"), function(data){
 	 			container.find("#dessert5").html(data.title);
-				model.getDishPrice("dessert", function(data){
-					container.find("#dessertPrice5").html(data);
-					sum = sum + data;
-				});
+				container.find("#dessertPrice5").html(data.pricePerServing);
+				sum += data.pricePerServing * model.getNumberOfGuests();
 	 			container.find("#dessertImage").attr("src",data.image);
 	 		});
 	 	}

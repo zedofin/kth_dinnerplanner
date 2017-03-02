@@ -23,6 +23,20 @@ var View5 = function (container, model) {
 
 	model.addObserver(this);
 	 this.update = function(obj){
+
+
+		this.starter5.html("You have no starter");
+		this.starterPrice5.html("");
+		this.starterImage.attr("src","/../../images/loading.gif");
+
+		this.main5.html("You have no main dish");
+		this.mainPrice5.html("");
+		this.mainImage.attr("src","/../../images/loading.gif");
+
+		this.dessert5.html("You have no dessert");
+		this.dessertPrice5.html("");
+		this.dessertImage.attr("src","/../../images/loading.gif");
+
 	 	// update the number of people
 	 	this.myDinnerXPeople.html(model.getNumberOfGuests());
 		var sum = 0;

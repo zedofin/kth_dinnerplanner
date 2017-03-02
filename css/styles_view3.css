@@ -2,14 +2,19 @@
     margin-right: auto;
     margin-left:auto;
     margin-top: 20px;
-    width: 200px;
     height: 200px;
+    width: 300px;
     position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    padding-top: 50px;
+
     /* this is the only relevant part for the example */
 }
 /* both DIVs have the same image */
  .bg-image-blur2, .bg-image-blur5, .bg-image-blur10, .bg-image-blur15, .bg-image-blur20, .bg-image {
-    background-image: url('http://lorempixel.com/200/200/city/9');
+    background-size: cover;
     position:absolute;
     top:0;
     left:0;

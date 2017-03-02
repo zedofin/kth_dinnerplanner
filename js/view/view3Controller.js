@@ -3,14 +3,16 @@ var View3Controller = function(view, model, container ) {
 	 view.searchDishes.click(function(){
 	 	model.getAllDishes( container.find("#dishType").val(), container.find("#dishKeyword").val(), function(results){
 
-	 		console.log("view3 got data from model:");
-	 		console.log(results);
+
+			view.searchResults.html("");
+			view.searchResults.html("");
 
 	 		var searchResultsHtml = '<table id="searchResultsOuterTable"><tr>';
 	 		var newLineCounter = 1;
 			for (i in results){
 				results[i].description = "Lorem ipsum description right now";
 				searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td><img onClick="" id="'+ results[i].id +'" class="dishImage" src="https://spoonacular.com/recipeImages/' + results[i].image +'" /></td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
+				//searchResultsHtml += '<td><table id="searchResultsInnerTable"><tr><td>    <div class="placeholder"> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image-blur20"></div> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image-blur15"></div> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image-blur10"></div> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image-blur5"></div> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image-blur2"></div> <div onClick="" id="'+ results[i].id +'" style="background-image:url(https://spoonacular.com/recipeImages/' + results[i].image +');" class="dishImage bg-image" ></div> </div>  </td></tr><tr><td><b>' + results[i].title + '</b></td></tr><tr><td>' + results[i].description + '</td></tr></table></td>';
 				if (newLineCounter > 1) {
 					searchResultsHtml += '</tr><tr>';
 					newLineCounter = 0;

@@ -20,6 +20,7 @@ var View6 = function (container, model) {
 
 		if(model.issetCourse("starter")) {
 	 		model.getDish(model.getCourse("starter"), function(data){
+	 			console.log(data);
 				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {
@@ -36,7 +37,7 @@ var View6 = function (container, model) {
 	 	}
 
 		if(model.issetCourse("mainDish")) {
-model.getDish(model.getCourse("starter"), function(data){
+model.getDish(model.getCourse("mainDish"), function(data){
 				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {
@@ -53,7 +54,7 @@ model.getDish(model.getCourse("starter"), function(data){
 	 	}
 
 		if(model.issetCourse("dessert")) {
-model.getDish(model.getCourse("starter"), function(data){
+model.getDish(model.getCourse("dessert"), function(data){
 				fullRecipeHtml += "<td class='verticalAlignUp' height='400'><img src='" + data.image +"' width='400'/>" + "<h2>"+ data.title +"</h2>" + "<h3>" + "Ingredients: " + "</h3>";
 				//console.log(data);
 				for (ing in data.extendedIngredients) {

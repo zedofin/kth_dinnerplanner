@@ -27,11 +27,11 @@ var View5 = function (container, model) {
 
 		this.starter5.html("You have no starter");
 		this.starterPrice5.html("");
-		this.starterImage.attr("src","/images/loading.gif");
+		this.starterImage.attr("src","images/loading.gif");
 
 		this.main5.html("You have no main dish");
 		this.mainPrice5.html("");
-		this.mainImage.attr("src","/images/loading.gif");
+		this.mainImage.attr("src","images/loading.gif");
 
 		this.dessert5.html("You have no dessert");
 		this.dessertPrice5.html("");
